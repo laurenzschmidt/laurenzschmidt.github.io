@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EICHE Technologies – Nachtragsmanagement neu gedacht</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --bg2: #EFECEA;
+    --white: #FFFFFF;
+    --ink: #1A1A18;
+    --ink2: #3D3D38;
+    --muted: #8C8B84;
+    --accent: #2B4C2E;
+    --accent2: #4A7C50;
+    --accent-light: #E8F0E9;
+    --border: #DDDBD4;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(247,245,240,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: var(--serif); font-size: 22px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); text-decoration: none; }
+  .logo span { font-size: 11px; font-family: var(--sans); font-weight: 400; letter-spacing: 0.15em; color: var(--muted); display: block; text-transform: uppercase; margin-top: -2px; }
+  .nav-cta { background: var(--accent); color: white; font-size: 13px; font-weight: 500; padding: 10px 24px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--accent2); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
+  .hero-left { padding: 80px 48px 80px 80px; display: flex; flex-direction: column; justify-content: center; animation: fadeUp 0.8s ease both; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 32px; }
+  .hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 28px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-body { font-size: 17px; color: var(--ink2); line-height: 1.7; max-width: 480px; margin-bottom: 48px; font-weight: 300; }
+  .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: white; font-size: 15px; font-weight: 500; padding: 16px 36px; border-radius: 2px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.03em; }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(43,76,46,0.2); }
+  .btn-secondary { font-size: 14px; color: var(--ink2); text-decoration: none; display: flex; align-items: center; gap: 6px; font-weight: 400; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero-right { background: var(--accent); display: flex; align-items: center; justify-content: center; padding: 80px 48px; position: relative; overflow: hidden; animation: fadeIn 1s ease both 0.3s; }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px; }
+  .hero-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 40px; position: relative; z-index: 1; max-width: 380px; }
+  .stat-row { display: flex; flex-direction: column; gap: 28px; }
+  .stat { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 28px; }
+  .stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-num { font-family: var(--serif); font-size: 42px; font-weight: 700; color: white; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.5; }
+
+  .section { padding: 100px 80px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .section-eyebrow::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); }
+  .section-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 42px); font-weight: 600; line-height: 1.2; color: var(--ink); margin-bottom: 24px; max-width: 640px; }
+  .section-body { font-size: 16px; color: var(--ink2); max-width: 600px; line-height: 1.8; font-weight: 300; }
+
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 56px; }
+  .problem-card { background: var(--white); padding: 36px 32px; transition: background 0.2s; }
+  .problem-card:hover { background: var(--accent-light); }
+  .problem-icon { font-size: 28px; margin-bottom: 16px; }
+  .problem-title { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+  .problem-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  .research-section { background: var(--accent); padding: 100px 80px; position: relative; overflow: hidden; }
+  .research-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 48px 48px; }
+  .research-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+  .research-left .section-eyebrow { color: rgba(255,255,255,0.5); }
+  .research-left .section-eyebrow::after { background: rgba(255,255,255,0.3); }
+  .research-left .section-title { color: white; }
+  .research-left .section-body { color: rgba(255,255,255,0.7); }
+  .research-right { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 40px; }
+  .step-list { display: flex; flex-direction: column; gap: 0; }
+  .step-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: flex-start; }
+  .step-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .step-item:first-child { padding-top: 0; }
+  .step-num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.2); line-height: 1; flex-shrink: 0; width: 32px; }
+  .step-title { font-size: 14px; font-weight: 500; color: white; margin-bottom: 4px; }
+  .step-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  .form-section { padding: 100px 80px; background: var(--white); }
+  .form-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .form-promise { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+  .promise-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--ink2); line-height: 1.5; }
+  .promise-icon { width: 20px; height: 20px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
+  .email-box { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 48px 40px; text-align: center; }
+  .email-icon { font-size: 44px; margin-bottom: 20px; }
+  .email-box-title { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 12px; line-height: 1.3; }
+  .email-box-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
+  .email-cta { display: inline-block; background: var(--accent); color: white; font-size: 15px; font-weight: 500; padding: 16px 36px; border-radius: 2px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.03em; }
+  .email-cta:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(43,76,46,0.2); }
+  .email-address { margin-top: 20px; font-size: 13px; color: var(--accent); letter-spacing: 0.03em; font-weight: 500; }
+  .email-note { font-size: 11px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+
+  footer { background: var(--ink); padding: 48px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.08em; }
+  .footer-logo span { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; font-weight: 300; margin-top: 2px; }
+  .footer-text { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-link { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-link:hover { color: rgba(255,255,255,0.7); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px 48px; }
+    .hero-right { padding: 48px 24px; min-height: 360px; }
+    .section { padding: 60px 24px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .research-section { padding: 60px 24px; }
+    .research-inner { grid-template-columns: 1fr; gap: 40px; }
+    .form-section { padding: 60px 24px; }
+    .form-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">EICHE<span>Technologies</span></a>
+  <a href="#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Marktforschung 2026</div>
+    <h1>Nachtragsmanagement im Bau –<br><em>wie lösen Sie es heute?</em></h1>
+    <p class="hero-body">Wir entwickeln eine Software, die Nachträge automatisch gegen Bautagesberichte und Angebote abgleicht. Bevor wir bauen, wollen wir verstehen, wie der Prozess in der Praxis wirklich aussieht – und wo der größte Schmerz liegt.</p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Am Interview teilnehmen</a>
+      <a href="#ablauf" class="btn-secondary">Wie läuft das ab? →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">10–20%</div>
+          <div class="stat-label">des Projektbudgets gehen im Schnitt durch unkontrollierte Nachträge verloren</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Ø 3 Std.</div>
+          <div class="stat-label">verbringt ein Projektleiter pro Woche mit manueller Nachtragsprüfung</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">20 Min.</div>
+          <div class="stat-label">dauert das Gespräch – und Ihre Perspektive ist unbezahlbar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Die Herausforderung</div>
+      <h2 class="section-title">Was Projektentwickler täglich beschäftigt</h2>
+      <p class="section-body">Nachträge sind unvermeidlich. Aber der manuelle Abgleich von Rechnungen, Bautagesberichten und Angeboten kostet Zeit, Nerven – und oft bares Geld.</p>
+    </div>
+    <div class="problem-grid reveal" style="transition-delay:0.15s">
+      <div class="problem-card">
+        <div class="problem-icon">📋</div>
+        <div class="problem-title">Unübersichtliche Dokumentenlage</div>
+        <div class="problem-desc">Bautagesberichte, Angebote, Nachträge und Rechnungen liegen verteilt über E-Mails, Ordner und Tools – kein einheitliches Bild.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⏱</div>
+        <div class="problem-title">Manueller Abgleich frisst Zeit</div>
+        <div class="problem-desc">Jede Position manuell zu prüfen ist fehleranfällig. Abweichungen werden spät oder gar nicht bemerkt – oft erst bei der Schlussrechnung.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚖️</div>
+        <div class="problem-title">Streitigkeiten ohne Belege</div>
+        <div class="problem-desc">Wenn ein Nachtrag bestritten wird, fehlen lückenlose Nachweise. Der Aufwand für Widersprüche nach VOB/B ist enorm.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="research-section" id="ablauf">
+  <div class="research-inner">
+    <div class="research-left reveal">
+      <div class="section-eyebrow">Kein Pitch. Nur Zuhören.</div>
+      <h2 class="section-title" style="color:white">Was wir von Ihnen lernen möchten</h2>
+      <p class="section-body">Wir befinden uns in der Forschungsphase. Kein fertiges Produkt, keine Verkaufsabsicht. Wir suchen Praktiker, die uns zeigen, wie die Realität aussieht.</p>
+    </div>
+    <div class="research-right reveal" style="transition-delay:0.2s">
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-title">Ihr aktueller Prozess</div>
+            <div class="step-desc">Wie läuft Nachtragsmanagement bei Ihnen heute ab? Welche Tools, welche Abläufe?</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-title">Wo der Schmerz sitzt</div>
+            <div class="step-desc">Was kostet Sie am meisten Zeit oder Geld? Was ist die größte Schwachstelle?</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-title">Was Sie sich wünschen</div>
+            <div class="step-desc">Wenn Sie eine ideale Lösung beschreiben könnten – wie würde sie aussehen?</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <div class="step-title">Dauer: 20 Minuten</div>
+            <div class="step-desc">Per Telefon oder Video, nach Ihrer Verfügbarkeit. Kein Vor- oder Nachbereitungsaufwand.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="kontakt">
+  <div class="form-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Jetzt mitmachen</div>
+      <h2 class="section-title">Ihre Erfahrung zählt</h2>
+      <p class="section-body">Als Dankeschön erhalten Sie nach dem Gespräch eine Zusammenfassung unserer Erkenntnisse aus allen Interviews – und die Möglichkeit, das Produkt als Erster zu testen.</p>
+      <div class="form-promise">
+        <div class="promise-item"><div class="promise-icon">✓</div><span>Kein Pitch, keine Verkaufsabsicht – ausschließlich Forschungsgespräch</span></div>
+        <div class="promise-item"><div class="promise-icon">✓</div><span>Ihre Angaben werden vertraulich behandelt und nicht weitergegeben</span></div>
+        <div class="promise-item"><div class="promise-icon">✓</div><span>Sie bestimmen Datum und Uhrzeit – wir passen uns an</span></div>
+        <div class="promise-item"><div class="promise-icon">✓</div><span>Zusammenfassung der Gesamtergebnisse nach Abschluss der Forschungsphase</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="email-box">
+        <div class="email-icon">✉️</div>
+        <div class="email-box-title">Schreiben Sie uns eine kurze E-Mail</div>
+        <p class="email-box-desc">Nennen Sie uns Ihren Namen, Ihr Unternehmen und wann Sie in etwa Zeit hätten. Den Rest klären wir im Gespräch.</p>
+        <a href="mailto:info@eiche.tech?subject=Interview-Anfrage%20Nachtragsmanagement&body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20gerne%20am%20Interview%20teilnehmen.%0A%0AName%3A%20%0AUnternehmen%3A%20%0APosition%3A%20%0AVerf%C3%BCgbarkeit%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="email-cta">Jetzt E-Mail schreiben →</a>
+        <div class="email-address">info@eiche.tech</div>
+        <p class="email-note">Wir antworten innerhalb von 48 Stunden mit einem Terminvorschlag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">EICHE<span>Technologies · eiche.tech</span></div>
+  <div class="footer-text">© 2026 EICHE Technologies</div>
+  <a href="mailto:info@eiche.tech" class="footer-link">info@eiche.tech</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  function submitForm() {}
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
