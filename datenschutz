@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz</title>
+</head>
+<body>
+
+<div id='generator_results'>
+<div id='generator_results_content'>
+<h1>Datenschutzhinweise</h1>
+<h2>Verantwortlicher</h2>
+<p>Verantwortlicher im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutz-Grundverordnung (DSGVO), ist:</p>
+<p class='generator_user_input'>EICHE Management Consulting</p>
+<h2>Ihre Betroffenenrechte</h2>
+<p>Unter den angegebenen Kontaktdaten können Sie gemäß EU-Datenschutz-Grundverordnung (DSGVO) jederzeit folgende Rechte ausüben:</p>
+<ul>
+<li>Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung (Art. 15 DSGVO),</li>
+<li>Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),</li>
+<li>Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO),</li>
+<li>Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund gesetzlicher Pflichten noch nicht löschen dürfen (Art. 18 DSGVO),</li>
+<li>Widerspruch gegen die Verarbeitung Ihrer Daten bei uns (Art. 21 DSGVO) und</li>
+<li>Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt haben oder einen Vertrag mit uns abgeschlossen haben (Art. 20 DSGVO).</li>
+</ul>
+<p>Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+<p>Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde wenden.</p>
+<p>Liste der Aufsichtsbehörden:
+<a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html">
+https://www.bfdi.bund.de
+</a>
+</p>
+
+<h2>Information über Ihr Widerspruchsrecht nach Art. 21 DSGVO</h2>
+<h3>Einzelfallbezogenes Widerspruchsrecht</h3>
+<p>Sie haben das Recht, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch einzulegen.</p>
+
+<h3>Empfänger eines Widerspruchs</h3>
+<p class='generator_user_input'>Laurenz Schmidt, info@eiche.tech</p>
+
+<h2>Änderung unserer Datenschutzerklärung</h2>
+<p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen.</p>
+
+<h2>Fragen zum Datenschutz</h2>
+<p>Schreiben Sie uns bitte eine E-Mail.</p>
+
+</div>
+</div>
+
+</body>
+</html>
