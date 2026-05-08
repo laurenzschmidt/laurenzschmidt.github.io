@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum</title>
+</head>
+<body>
+
+<div id='generator_results'>
+<div id='generator_results_content'>
+<h1>Impressum</h1>
+<h2>Verantwortliche(r)</h2>
+<p class='generator_user_input'>EICHE Management Consulting</p>
+<h3>Postanschrift</h3>
+<p class='generator_user_input'>Am Eisertsfeld 3, 83569 Vogtareuth</p>
+<h3>Kontakt</h3>
+<p>E-Mail: info@eiche.tech</p>
+<h3>Vertreten durch</h3>
+<p class='generator_user_input'>Laurenz Schmidt</p>
+<h2>Hinweise zur Website</h2>
+<h3>Urheberrechtliche Hinweise</h3>
+<p class='generator_user_input'>EICHE Management Consulting</p>
+<h3>Verantwortlich für journalistisch-redaktionelle Inhalte</h3>
+<p class='generator_user_input'>EICHE Management Consulting</p>
+</div>
+</div>
+
+</body>
+</html>
